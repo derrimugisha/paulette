@@ -10,15 +10,9 @@
             </div>
 
             <div class="px-5 pb-5 futura textpuple fontsalsa">
-                We provide culturall relevant reading material for all ages while
-                sharing the vibrant traditions and lessons of Ugandan stories
-                about our histories and cultures with the world. Our comic books
-                help in sharing and understanding a rich history and culture in an
-                easier, illustrated and more interactive manner. Each book is
-                loaded with stories that engange with Uganda, the Pearl of Africa,
-                regadless where you come from. The stories are mixture of fun &
-                purpose as well as crucial to understanding who we are as
-                Africans.
+                @foreach($aboutus as $ab)
+                {{$ab->body}}
+                @endforeach
             </div>
         </div>
     </div>
@@ -52,27 +46,27 @@
             @if(count($books)>0)
 
             @foreach($books as $book)
-            <div class="col-12 col-md-12 col-sm-12 col-lg-6 d-flex justify-content-center ">
+            <div class="col-12 col-md-12 col-sm-12 col-lg-6 d-flex justify-content-center p-2 ">
                 <!-- card -->
                 <div class="card mb-3 shadow-2-strong" style="max-width: 540px">
                     <div class="row g-0">
 
-                        <div class="col-md-6">
-                            <div class="rounded-left">
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="rounded-left imgbox">
                                 <img src="{{asset('/public'.$book->file_path)}}" alt="" class="fitter">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6 col-6">
                             <div class="card-body">
-                                <h5 class="card-title textpuple fonthead font-weight-bolder poppins myst">
+                                <h5 class="card-title textpuple fonthead mybld futura myst text-uppercase">
                                     {{$book->book_name}}
                                 </h5>
-                                <p class="fonthead2 roboto">
+                                <p class="fonthead2 roboto text-uppercase">
 
                                     {{$book->subdetails}}
 
                                 </p>
-                                <p class="card-text fonthead futura cdh">
+                                <p class="card-text fonthead futura cdh roboto">
                                     {{$book->details}}
                                 </p>
                                 <p class="card-text fonthead my-0">
@@ -115,15 +109,80 @@
                                     @if($book->panner == 'comming soon')
 
                                     <button class="btn mypuple text-light">
-                                        <span class="text-capitalize">Comming Soon</span>
+                                        <span class="text-capitalize roboto">Comming Soon</span>
                                     </button>
 
                                     @else
 
-                                    <button class="btn mypuple text-light">
-                                        <i class="fas fa-shopping-cart px-2"></i><span class="text-capitalize">Buy Now</span>
+                                    <button class="btn mypuple text-light" data-toggle="modal" data-target="#buyform{{$book->id}}">
+                                        <i class="fas fa-shopping-cart px-2"></i><span class="text-capitalize  roboto">Buy Now</span>
                                     </button>
 
+
+                                    <!-- modal -->
+                                    <div class="modal fade" id="buyform{{$book->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div class="contact-info">
+                                                                <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                                                                <h2>Contact Us</h2>
+                                                                <h4>We would love to hear from you !</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="contact-form">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-sm-2" for="fname">First Name:</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-sm-2" for="lname">Last Name:</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-sm-2" for="comment">Comment:</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                                        <button type="submit" class="btn btn-default">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of modal -->
                                     @endif
                                 </p>
 
@@ -139,7 +198,7 @@
             @else
 
             <div class="col d-flex justify-content-center ">
-                <div class="bg-secondary rounded p-5 text-light" >
+                <div class="bg-secondary rounded p-5 text-light">
                     A simple primary alert—check it out!
                 </div>
             </div>

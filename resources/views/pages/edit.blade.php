@@ -60,13 +60,13 @@
                                                     <span class="form-file-button">Browse</span>
                                                 </label>
                                             </div> --}}
-                    {{-- <div class="custom-file mb-4">
+                    <div class="custom-file mb-4">
                         <input type="file" class="custom-file-input" id="customFile" name="file">
                         @error('file')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div> --}}
+                    </div>
 
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 </form>

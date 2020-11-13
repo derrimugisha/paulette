@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>paulette</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -52,6 +52,8 @@
     <script type="text/javascript" src="{{ asset('mdb/js/read-more.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('mdb/js/jquery.searchable-1.1.0.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('mdb/js/searchrun.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('mdb/js/others.js')}}"></script>
+     <script type="text/javascript" src="{{ asset('mdb/js/orders.js')}}"></script>
     <script>
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function() {

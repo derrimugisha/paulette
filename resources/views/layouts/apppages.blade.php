@@ -25,14 +25,14 @@
 
 </head>
 <body>
-    <header class="ltblue">
+    <header class="toperbg">
 
         @include('inc.header')
-
+        @include('inc.messages')
     </header>
 
     <main>
-        @include('inc.messages')
+
         @yield('main')
     </main>
 
@@ -48,4 +48,5 @@
 <script type="text/javascript" src="{{ asset('mdb/js/read-more.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/jquery.searchable-1.1.0.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/searchrun.js')}}"></script>
+<script type="text/javascript" src="{{ asset('mdb/js/others.js')}}"></script>
 </html>

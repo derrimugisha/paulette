@@ -1,234 +1,270 @@
 @import url("https://fonts.googleapis.com/css2?family=Piedra&family=Salsa&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap");
 
+.navbar {
+    box-shadow: none !important;
+}
+
 .ltblue {
-  /* background-color: #677af0; */
-  background: linear-gradient(159.29deg, #cbdc18 0%, #f0d98c 82.94%);
+    /* background-color: #677af0; */
+    background: linear-gradient(159.29deg, #cbdc18 0%, #f0d98c 82.94%);
 }
 
 .carousel-indicators li {
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  background-color: #404040;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #404040;
 }
 
 .myheight {
-  height: 400px;
+    height: 400px;
 }
 
 .inherit {
-  max-height: inherit;
+    max-height: inherit;
 }
 
 .fitter {
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-  display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
 }
 
 .img_container {
-  /* height: 100%;
+    /* height: 100%;
       width: 100%; */
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .myred {
-  background-color: #e64065;
+    background-color: #e64065;
 }
 .mypuple {
-  background-color: #1a0436;
+    background-color: #1a0436;
 }
 
 .gpuple {
-  background: linear-gradient(134.36deg, #1a0436 0%, #6d349f 98.91%);
+    background: linear-gradient(134.36deg, #1a0436 0%, #6d349f 98.91%);
 }
 
 /* Bootstrap 4 text input with search icon */
 
 .has-search .form-control {
-  padding-left: 2.375rem;
+    padding-left: 2.375rem;
 }
 
 .has-search .form-control-feedback {
-  position: absolute;
-  z-index: 2;
-  display: block;
-  width: 2.375rem;
-  height: 2.375rem;
-  line-height: 2.375rem;
-  text-align: center;
-  background-color: none;
-  pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    background-color: none;
+    pointer-events: none;
 }
 .has-search .form-control::-webkit-input-placeholder {
-  color: white;
+    color: white;
 }
 .has-search .form-control:valid {
-  background-color: #1a0436;
+    background-color: #1a0436;
 }
 
 .has-search .form-control-plaintext {
-  color: white;
-  border: white solid 1px;
+    color: white;
+    border: white solid 1px;
 }
 
 #srch {
-  color: white;
+    color: white;
 }
 .searchwrap {
-  width: 50%;
-  margin: 50px auto;
+    width: 50%;
+    margin: 50px auto;
 }
 
 .mypuple2 {
-  background-color: #6d3aa0;
+    background-color: #6d3aa0;
 }
 
 .myoutline {
-  outline-color: white;
+    outline-color: white;
 }
 
 .myposition {
-  position: relative;
-  top: 159px;
+    position: relative;
+    top: 159px;
 }
 
 .myposition2 {
-  position: relative;
-  top: 259px;
+    position: relative;
+    top: 259px;
 }
 
 .underline {
-  /* text-decoration: underline;
+    /* text-decoration: underline;
   text-decoration-color: red; */
-  text-decoration: none;
-  border-bottom: 5px solid #1a0436;
+    text-decoration: none;
+    border-bottom: 5px solid #1a0436;
 }
 
 .textpuple {
-  color: #38155c;
+    color: #38155c;
 }
 
 .fonthead {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .fonthead2 {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 .fonthead3 {
-  font-size: 5px;
+    font-size: 5px;
 }
 
 .imagecentering {
-  background-size: contain;
-  /* background-position: center center ; */
-  background-repeat: no-repeat;
-  height: 100%;
+    background-size: contain;
+    /* background-position: center center ; */
+    background-repeat: no-repeat;
+    height: 100%;
 }
 .poppins {
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 .futura {
-  font-family: "Futura", sans-serif;
+    font-family: "Futura", sans-serif;
+    
 }
 .roboto {
-  font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .fill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 .fill img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .read-more {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .read-more__link {
-  font-weight: bold;
-  color:#1a0436;
-  cursor: pointer;
+    font-weight: bold;
+    color: #1a0436;
+    cursor: pointer;
 }
 .headholder {
-  height: 690px;
+    height: 690px;
 }
 .textTT {
-  color: #13cf88;
+    color: #13cf88;
 }
 .TTbackground {
-  background-color: #13cf88;
+    background-color: #13cf88;
 }
 
 .f_input .form-control::-webkit-input-placeholder {
-  color: black;
+    color: black;
 }
 .f_input .form-control:valid {
-  background-color: white;
+    background-color: white;
 }
 
 .f_input .form-control-plaintext {
-  color: white;
-  border: white solid 1px;
+    color: white;
+    border: white solid 1px;
 }
 
 .BB {
-  position: absolute;
-  top: 40;
-  bottom: 0;
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  /* justify-content: center; */
-  width: 30%;
-  color: #fff;
-  /* text-align: center; */
-  /* opacity: .5; */
-  /* -webkit-transition: opacity .15s ease; */
-  /* transition: opacity .15s ease; */
+    position: absolute;
+    top: 40;
+    bottom: 0;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    /* justify-content: center; */
+    width: 30%;
+    color: #fff;
+    /* text-align: center; */
+    /* opacity: .5; */
+    /* -webkit-transition: opacity .15s ease; */
+    /* transition: opacity .15s ease; */
+}
+
+.aa {
+    position: absolute;
+    left: 315px;
+    bottom: 270px;
 }
 
 .textbrown {
-  color: brown;
+    color: brown;
 }
 .fontsalsa {
-  font-family: "Salsa", cursive;
+    font-family: "Salsa", cursive;
 }
 .fontpiedra {
-  font-family: "Piedra", cursive;
+    font-family: "Piedra", cursive;
 }
-.thebar{
-  font-family: 'Libre Barcode 39 Text', cursive;
-  font-size: 40px;
+.thebar {
+    font-family: "Libre Barcode 39 Text", cursive;
+    font-size: 40px;
 }
 
-.pieheade{
-  font-size: 45px;
+.pieheade {
+    font-size: 45px;
 }
-.cdh{
-  height: 88px;
-  overflow: hidden;
+.cdh {
+    height: 88px;
+    overflow: hidden;
 }
 .fitterh {
-  position:absolute;
-right: 0;
+    position: absolute;
+    right: 0;
 }
-.imglogo{
+.imglogo {
     height: 75;
+}
+.toperbg {
+    background: linear-gradient(
+        130.28deg,
+        #ffb100 0%,
+        #ffb100 33.77%,
+        #e64065 129.37%
+    );
+}
+
+.imgbox {
+    /* width: 270px; */
+    height: 405px;
+
+    /* border: 5px dashed #fafafa; */
+}
+.imgbox img {
+    width: 100%;
+    height: 100%;
+}
+.mybtn{
+    cursor: pointer;
+}
+.mybld{
+    font-weight:800;
 }
