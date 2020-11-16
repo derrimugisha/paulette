@@ -27,10 +27,6 @@ class PagesController extends Controller
 
     public function update(Request $req,$id){
         $books = Myfiles::find($id);
-
-
-
-
         $req->validate([
             'file' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);

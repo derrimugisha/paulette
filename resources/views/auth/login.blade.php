@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-           <h4 class="textpuple fontpiedra pieheade">PAULETTE COMMICS</h4>
+           <h4 class="textpuple fontpiedra pieheade">PAULETTE COMICS</h4>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

@@ -15,7 +15,7 @@
                          <div class="btn btn-primary" data-toggle="modal" data-target="#mynotification">
                             new orders <span class="badge badge-danger" id="nt"></span>
                         </div>
-                        <a href="{{ asset('/myorders') }}" class="btn btn-success"> View Orders </a>
+                        <a href="{{ asset('/allorders') }}" class="btn btn-success"> View All Orders </a>
                         <a href="{{asset('/tosettings')}} " class="btn btn-primary">Settings</a>
 
                     </div>
