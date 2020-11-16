@@ -17,8 +17,10 @@ $(document).ready(function() {
         console.log(Val);
         $("#mytotal").text(Val);
     });
+});
 
-   
-    
-   
+$("#showf").on("click", function() {
+    // alert("the Test is working");
+    $("#myfile").removeClass("d-none");
+    $("#showf").addClass("d-none");
 });

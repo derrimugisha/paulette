@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Myfiles;
 use App\Models\headside;
 use App\Models\AboutUs;
+use App\Models\FooterContacts;
 
 class PagesController extends Controller
 {
@@ -14,10 +15,12 @@ class PagesController extends Controller
         $books = Myfiles::all()->take('10');
         $headside = headside::all()->take('1');
         $aboutus= AboutUs::all()->take('1');
+        $footercontent= FooterContacts::all();
         return view('pages.index')
         ->with('books',$books)
         ->with('headside',$headside)
-        ->with('aboutus',$aboutus);
+        ->with('aboutus',$aboutus)
+        ->with('footercontent',$footercontent);
     }
 
     public function edit($id){
@@ -27,9 +30,9 @@ class PagesController extends Controller
 
     public function update(Request $req,$id){
         $books = Myfiles::find($id);
-        $req->validate([
-            'file' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048'
-            ]);
+        // $req->validate([
+        //     'file' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        //     ]);
 
 
 
@@ -51,6 +54,17 @@ class PagesController extends Controller
                 ->with('success','File has been uploaded.')
                 ->with('file', $fileName);
             }
+
+               $books->book_name = $req->input('bookname');
+               $books->details = $req->input('details');
+               $books->issue = $req->input('issue');
+               $books->panner = $req->input('banner');
+               $books->price = $req->input('price');
+               $books->subdetails = $req->input('subdetails');
+               $books->save();
+
+                return back()
+                ->with('success','File has been uploaded.');
         // return redirect('dashboard')->with('success',$books->book_name. ' Updated Updated');
 
 }

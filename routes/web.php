@@ -32,6 +32,9 @@ Route::post('savephone/',[App\Http\Controllers\ContactController::class,'storeph
 Route::get('tosettings/',[App\Http\Controllers\settingsController::class,'index']);
 Route::post('tosettings/changes',[App\Http\Controllers\settingsController::class,'ChangeSideHeadText']);
 Route::post('tosettings/aboutus',[App\Http\Controllers\settingsController::class,'ChangeAboutUs']);
+Route::post('update/footer/{id}',[App\Http\Controllers\settingsController::class,'updatefc']);
+Route::post('add/footer',[App\Http\Controllers\settingsController::class,'addFootterContent']);
+Route::get('removecontact/{id}',[App\Http\Controllers\settingsController::class,'deleteFc']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $books = Myfiles::all();

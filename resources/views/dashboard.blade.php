@@ -92,7 +92,7 @@
                                             <!-- banners-->
                                             <select class=" form-control mb-4" id="banner" name="banner">
                                                 <option value="">Select status </option>
-                                                <option value="comming soon">Comming Soon</option>
+                                                <option value="coming soon">Coming Soon</option>
                                                 <option value="available">Available</option>
 
                                             </select>

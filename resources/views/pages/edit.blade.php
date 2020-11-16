@@ -46,27 +46,23 @@
 
                     <!-- banners-->
                     <select class=" form-control mb-4" id="banner" name="banner">
-                        <option value="{{$books->panner}}">Select status </option>
-                        <option value="comming soon">Comming Soon</option>
+                        <option value="{{$books->panner}}">{{$books->panner}} </option>
+                        <option value="coming soon">Coming Soon</option>
                         <option value="available">Available</option>
 
                     </select>
 
 
-                    {{-- <div class="form-file">
-                                                <input type="file" class="form-file-input" id="customFile" name="file" />
-                                                <label class="form-file-label" for="customFile">
-                                                    <span class="form-file-text">Choose Book Cover...</span>
-                                                    <span class="form-file-button">Browse</span>
-                                                </label>
-                                            </div> --}}
-                    <div class="custom-file mb-4">
+
+                    <div class="custom-file mb-4 d-none" id="myfile">
                         <input type="file" class="custom-file-input" id="customFile" name="file">
                         @error('file')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
+
+                    <div class="btn btn-sm btn-success custom-file mb-3" id="showf">Click to update Cover Image</div>
 
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 </form>

@@ -43,24 +43,22 @@
         @yield('main')
     </main>
 
-    <footer>
-        @include('inc.footer')
-    </footer>
+
 </body>
 <script type="text/javascript" src="{{ asset('mdb/js/mdb.min.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/links.js')}}"></script>
-<script type="text/javascript" src="{{ asset('mdb/js/read-more.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/jquery.searchable-1.1.0.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/searchrun.js')}}"></script>
 <script>
-        // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 
-    </script>
+</script>
+<script type="text/javascript" src="{{ asset('mdb/js/others.js')}}"></script>
 </html>

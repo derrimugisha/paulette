@@ -11,7 +11,7 @@
 
             <div class="pt-0">
 
-                <h6 class="text-light">Stay in Touch for the Freshest Products</h6>
+                <span class="text-light">Stay in Touch for the Freshest Products</span>
 
             </div>
 
@@ -27,9 +27,9 @@
 
             <div class="pt-0">
 
-                <h6 class="text-light">For updates and specals offers on Paulette
+                <span class="text-light">For updates and specals offers on Paulette
                     Comics, Collections, Gifts and videos.
-                    </h4>
+                </span>
 
             </div>
 
@@ -47,9 +47,9 @@
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <form method="POST" action="{{url('/saveemail')}}">
-            @csrf
+                @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email"  />
+                    <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email" />
                     <button class="input-group-text TTbackground " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
                 </div>
             </form>
@@ -57,7 +57,7 @@
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <form method="POST" action="{{url('/savephone')}}">
-            @csrf
+                @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="f_input" name="phone" />
                     <button class="input-group-text TTbackground  " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
@@ -88,6 +88,7 @@
     </div>
 
     <div class="row px-lg-5 pb-4">
+        @foreach($footercontent as $fc)
 
         <div class="col-12 col-md-12 col-sm-12 col-lg-4">
             <div class="row">
@@ -100,7 +101,7 @@
 
                 <div class="col-10 p-0">
                     <p class="p-0 m-0 text-light">Phone</p>
-                    <p class="p-0 m-0 text-light">(265)704 612621 | (265)772 612621</p>
+                    <p class="p-0 m-0 text-light">{{$fc->phone1}} | {{$fc->phone2}}</p>
                 </div>
 
             </div>
@@ -117,7 +118,7 @@
 
                 <div class="col-10 col-sm-10 col-md-10 p-0">
                     <p class="p-0 m-0 text-light">Email</p>
-                    <p class="p-0 m-0 text-light">paulettecomicsuganda@gmail.com</p>
+                    <p class="p-0 m-0 text-light">{{$fc->email}}</p>
                 </div>
 
             </div>
@@ -133,13 +134,13 @@
                 </div>
 
                 <div class="col-10 p-0">
-                    <p class="p-0 m-0 text-light">Adress</p>
-                    <p class="p-0 m-0  text-light">P.O.Box 9992,Kampala, Uganda</p>
+                    <p class="p-0 m-0 text-light">Address</p>
+                    <p class="p-0 m-0  text-light">{{$fc->address}}</p>
                 </div>
 
             </div>
         </div>
-
+        @endforeach
     </div>
 
 </div>

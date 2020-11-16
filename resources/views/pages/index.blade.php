@@ -107,7 +107,7 @@
                                     <i class="fas fa-star"></i>
                                 </p>
                                 <p>
-                                    @if($book->panner == 'comming soon')
+                                    @if($book->panner == 'coming soon')
 
                                     <button class="btn mypuple text-light">
                                         <span class="text-capitalize roboto">Coming Soon</span>
@@ -129,7 +129,7 @@
                                                 </div>
                                                 <div class="modal-body">
 
-                                                    <form action="{{ url('/order') }}" method="post">
+                                                    <form class="needs-validation" action="{{ url('/order') }}" method="post" novalidate>
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col">
@@ -149,26 +149,38 @@
 
                                                                 <!-- Email input -->
                                                                 <div class="form-outline mb-4">
-                                                                    <input type="email" id="form2Example1" class="form-control" name="email" />
+                                                                    <input type="email" id="form2Example1" class="form-control" name="email" requires />
                                                                     <label class="form-label" for="form2Example1">Email address</label>
+                                                                    <div class="invalid-feedback bm-4">
+                                                                        please fill in this field "Email"
+                                                                    </div>
                                                                 </div>
                                                                 <input type="text" id="bookid" class="d-none" name="bookid" value="{{$book->book_name}}" />
                                                                 <!-- country -->
                                                                 <div class="form-outline mb-4">
-                                                                    <input type="text" id="country" class="form-control" name="country" />
+                                                                    <input type="text" id="country" class="form-control" name="country" required />
                                                                     <label class="form-label" for="form2Example2">Country</label>
+                                                                    <div class="invalid-feedback bm-4">
+                                                                        please fill in this field "Country"
+                                                                    </div>
                                                                 </div>
 
                                                                 <!-- district -->
                                                                 <div class="form-outline mb-4">
-                                                                    <input type="text" id="district" class="form-control" name="district" />
+                                                                    <input type="text" id="district" class="form-control" name="district" required />
                                                                     <label class="form-label" for="form2Example2">District</label>
+                                                                    <div class="invalid-feedback bm-4">
+                                                                        please fill in this field "District"
+                                                                    </div>
                                                                 </div>
 
                                                                 <!-- phone -->
                                                                 <div class="form-outline mb-4">
-                                                                    <input type="text" id="phone" class="form-control" name="phone" />
+                                                                    <input type="text" id="phone" class="form-control" name="phone" required />
                                                                     <label class="form-label" for="form2Example2">Phone</label>
+                                                                    <div class="invalid-feedback bm-4">
+                                                                        please fill in this field "Phone"
+                                                                    </div>
                                                                 </div>
 
                                                                 <!-- street address -->
@@ -184,11 +196,13 @@
                                                                 </div>
 
                                                                 <!-- payment method-->
-                                                                <select class=" form-control mb-4" id="paymentmethod" name="paymentmethod">
+                                                                <select class=" form-control mb-4" id="paymentmethod" name="paymentmethod" required>
                                                                     <option value="">Select payment method </option>
                                                                     <!--<option value="comming soon">Mobile Money</option>-->
                                                                     <option value="cash on delivery">Cash On Delivery</option>
-
+                                                                    <div class="invalid-feedback bm-4">
+                                                                        please select your payment method
+                                                                    </div>
                                                                 </select>
 
                                                                 <!-- Submit button -->
@@ -263,4 +277,30 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (() => {
+                "use strict";
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll(".needs-validation");
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms).forEach(form => {
+                    form.addEventListener(
+                        "submit"
+                        , event => {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add("was-validated");
+                        }
+                        , false
+                    );
+                });
+            })();
+
+        </script>
         @endsection
