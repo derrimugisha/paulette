@@ -49,9 +49,8 @@
             <!--<div class="col-12 col-md-12 col-sm-12 col-lg-6 d-flex justify-content-center py-2 h-75 d-inline">-->
             <div class="col-12 col-md-12 col-sm-12 col-lg-6 d-flex justify-content-center p-2 ">
                 <!-- card -->
-                <div class="card mb-3 shadow-2-strong " style="max-width: 540px">
+                <div class="card mb-3 shadow-2-strong imgcard"  >
                     <div class="row g-0">
-
                         <div class="col-md-6 col-sm-12 col-12 col-lg-6">
                             <div class="rounded-left imgbox">
                                 <img src="{{asset('/public'.$book->file_path)}}" alt="" class="fitter rounded-left">

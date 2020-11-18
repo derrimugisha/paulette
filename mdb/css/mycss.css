@@ -139,7 +139,6 @@
 }
 .futura {
     font-family: "Futura", sans-serif;
-
 }
 .roboto {
     font-family: "Roboto", sans-serif;
@@ -262,9 +261,32 @@
     width: 100%;
     height: 100%;
 }
-.mybtn{
+.mybtn {
     cursor: pointer;
 }
-.mybld{
-    font-weight:800;
+.mybld {
+    font-weight: 800;
+}
+
+@media screen and (max-width: 468px) {
+    .imgcard {
+        width: 240px;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width: 595px) {
+    .imgcard {
+        width: 320px;
+        height: auto;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width:600px) {
+    .imgcard {
+        width: 540px;
+        height: auto;
+    }
 }

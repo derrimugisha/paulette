@@ -49,7 +49,7 @@
             <form method="POST" action="{{url('/saveemail')}}">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email" />
+                    <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email" required />
                     <button class="input-group-text TTbackground " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
                 </div>
             </form>
@@ -59,7 +59,7 @@
             <form method="POST" action="{{url('/savephone')}}">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="f_input" name="phone" />
+                    <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="f_input" name="phone" required/>
                     <button class="input-group-text TTbackground  " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
                 </div>
             </form>
