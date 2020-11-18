@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  
     //notifications
     let ajaxurl = "notf";
     function load_unseen() {
@@ -11,7 +10,8 @@ $(document).ready(function() {
             success: function(data) {
                 if (data.unseen_notification == 0) {
                     // console.log("There are no orders yet")
-                    $("#nt").addClass("d-none");
+                    // $("#nt").addClass("d-none");
+                    $("#nt").html(0);
                 } else {
                     // console.log("this is it " + data.unseen_notification);
                     console.log(data.notification[0]);
@@ -30,8 +30,15 @@ $(document).ready(function() {
                                 data.notification[i].email +
                                 "  Phone Number:" +
                                 data.notification[i].phone +
-                                '<span class="px-2"><a class="btn btn-success btn-sm" href="">View</a></span>' +
+                                '<span class="px-2" ><span id="' +
+                                data.notification[i].id +
+                                '"></span></span>' +
                                 "</li>"
+                        );
+                        $("#" + data.notification[i].id).html(
+                            '<a class="btn btn-success btn-sm" href="/paulette/seeorders/' +
+                                data.notification[i].id +
+                                '">View</a>'
                         );
                     }
                 }

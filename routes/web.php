@@ -24,7 +24,9 @@ Route::post('update/{id}',[App\Http\Controllers\PagesController::class,'update']
 Route::post('destroy/{id}',[App\Http\Controllers\PagesController::class,'destroy']);
 Route::post('order/',[App\Http\Controllers\OrdersController::class,'store']);
 Route::get('notf/',[App\Http\Controllers\OrdersController::class,'getNewOrder']);
+Route::get('allorders/',[App\Http\Controllers\OrdersController::class,'allorders']);
 Route::get('myorders/',[App\Http\Controllers\OrdersController::class,'index']);
+Route::get('seeorders/{id}',[App\Http\Controllers\OrdersController::class,'seeorders']);
 Route::post('saveemail/',[App\Http\Controllers\ContactController::class,'storeEmail']);
 Route::post('savephone/',[App\Http\Controllers\ContactController::class,'storephone']);
 Route::get('tosettings/',[App\Http\Controllers\settingsController::class,'index']);
