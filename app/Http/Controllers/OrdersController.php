@@ -14,26 +14,25 @@ class OrdersController extends Controller
     }
     public function store(Request $request){
         $this->validate($request,[
-            'email'=>'required',
-             'country'=>'required',
-             'district'=>'required',
+
              'phone'=>'required',
              'paymentmethod'=>'required',
              'quantity'=>'required',
              'price'=>'required',
-             'bookid'=>'required',
+
         ]);
         $order = new order;
-        $order->email = $request->input('email');
-        $order->country = $request->input('country');
-        $order->district = $request->input('district');
+        // $order->email = $request->input('email');
+        // $order->country = $request->input('country');
+        // $order->district = $request->input('district');
         $order->phone = $request->input('phone');
-        $order->streetaddress = $request->input('streetaddress');
-        $order->apartmentaddress = $request->input('apartmentaddress');
+        // $order->streetaddress = $request->input('streetaddress');
+        // $order->apartmentaddress = $request->input('apartmentaddress');
         $order->paymentmethod = $request->input('paymentmethod');
         $order->quantity = $request->input('quantity');
-        $order->price = $request->input('price') * $order->quantity;
+        $order->price = $request->input('price') ;
         $order->booknameid = $request->input('bookid');
+        $order->deliveryaddress = $request->input('address');
         $order->save();
 
         return redirect('/')->with('success','Your order has been made successfuly');

@@ -29,14 +29,41 @@ Route::get('myorders/',[App\Http\Controllers\OrdersController::class,'index']);
 Route::get('seeorders/{id}',[App\Http\Controllers\OrdersController::class,'seeorders']);
 Route::post('saveemail/',[App\Http\Controllers\ContactController::class,'storeEmail']);
 Route::post('savephone/',[App\Http\Controllers\ContactController::class,'storephone']);
-Route::get('tosettings/',[App\Http\Controllers\settingsController::class,'index']);
-Route::post('tosettings/changes',[App\Http\Controllers\settingsController::class,'ChangeSideHeadText']);
-Route::post('tosettings/aboutus',[App\Http\Controllers\settingsController::class,'ChangeAboutUs']);
-Route::post('update/footer/{id}',[App\Http\Controllers\settingsController::class,'updatefc']);
-Route::post('add/footer',[App\Http\Controllers\settingsController::class,'addFootterContent']);
-Route::get('removecontact/{id}',[App\Http\Controllers\settingsController::class,'deleteFc']);
+Route::get('tosettings/',[App\Http\Controllers\SettingsController::class,'index']);
+Route::post('tosettings/changes',[App\Http\Controllers\SettingsController::class,'ChangeSideHeadText']);
+Route::post('tosettings/aboutus',[App\Http\Controllers\SettingsController::class,'ChangeAboutUs']);
+Route::post('update/footer/{id}',[App\Http\Controllers\SettingsController::class,'updatefc']);
+Route::post('add/footer',[App\Http\Controllers\SettingsController::class,'addFootterContent']);
+Route::get('removecontact/{id}',[App\Http\Controllers\SettingsController::class,'deleteFc']);
+Route::get('subscribers',[App\Http\Controllers\ContactController::class,'index']);
+Route::post('addrate',[App\Http\Controllers\RatingController::class,'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $books = Myfiles::all();
     return view('dashboard')->with('books',$books);
 })->name('dashboard');
+
+
+ //Clear config cache:
+ Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    return 'Config cache cleared';
+});
+
+//Clear route cache:
+Route::get('/route-cache', function() {
+    $exitCode = Artisan::call('route:clear');
+    return 'Routes cache cleared';
+});
+
+ // Clear view cache:
+Route::get('/view-cache', function() {
+    $exitCode = Artisan::call('view:clear');
+    return 'View cache cleared';
+});
+
+// Clear application cache:
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return 'Application cache cleared';
+});

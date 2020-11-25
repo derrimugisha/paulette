@@ -128,6 +128,21 @@
     font-size: 5px;
 }
 
+.font-18 {
+    font-size: 18px;
+}
+.font-12 {
+    font-size: 12px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
 .imagecentering {
     background-size: contain;
     /* background-position: center center ; */
@@ -232,7 +247,7 @@
     font-size: 45px;
 }
 .cdh {
-    height: 88px;
+    height: 95px;
     overflow: hidden;
 }
 .fitterh {
@@ -268,25 +283,72 @@
     font-weight: 800;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.mythumb {
+    height: 140px;
+    width: 90px;
+    background-color: floralwhite;
+}
+
+.review-card {
+    position: absolute;
+    bottom: 200px;
+    left: 70px;
+    display: none;
+}
+
+.frm-error {
+    margin-top: -18px;
+}
+
 @media screen and (max-width: 468px) {
     .imgcard {
         width: 240px;
         height: auto;
     }
-}
-
-
-@media screen and (max-width: 595px) {
-    .imgcard {
-        width: 320px;
-        height: auto;
-        padding: 0;
+    .hr-sm {
+        height: 690px;
+    }
+    #bg-f {
+        display: none;
+    }
+    .review-card {
+        position: absolute;
+        bottom: 60px;
+        left: 40px;
+        display: none;
     }
 }
 
-@media screen and (max-width: 1920px) and (min-width:600px) {
+@media screen and (max-width: 595px) {
+    .imgcard {
+        width: 270px;
+        height: auto;
+        padding: 0;
+    }
+    .hr-sm {
+        height: 690px;
+    }
+    #bg-f {
+        display: none;
+    }
+    .review-card {
+        position: absolute;
+        bottom: 60px;
+        left: 40px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 600px) {
     .imgcard {
         width: 540px;
         height: auto;
+    }
+    #sm-f {
+        display: none;
     }
 }

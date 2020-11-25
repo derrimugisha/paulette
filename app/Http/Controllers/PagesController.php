@@ -12,7 +12,7 @@ use App\Models\FooterContacts;
 class PagesController extends Controller
 {
     public function index(){
-        $books = Myfiles::all()->take('10');
+        $books = Myfiles::paginate(10);
         $headside = headside::all()->take('1');
         $aboutus= AboutUs::all()->take('1');
         $footercontent= FooterContacts::all();

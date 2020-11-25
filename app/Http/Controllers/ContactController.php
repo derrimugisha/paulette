@@ -9,6 +9,12 @@ use App\Models\PhoneNumbers;
 
 class ContactController extends Controller
 {
+    public function index(){
+        $emails = emails::paginate(10);
+        $phonenumbers = PhoneNumbers::paginate(10);
+        return view('pages.subscribers')->with('emails',$emails)
+        ->with('phone',$phonenumbers);
+    }
     public function storeEmail(Request $request){
         $this->validate($request,['email'=>'required']);
         $email = new emails;
@@ -24,4 +30,5 @@ class ContactController extends Controller
         $phone->save();
         return redirect('/')->with('success','Your phone number has been saved!');
     }
+
 }

@@ -12,10 +12,11 @@
 
                 <div class="row">
                     <div class="col p-5">
-                         <div class="btn btn-primary" data-toggle="modal" data-target="#mynotification">
+                        <div class="btn btn-primary" data-toggle="modal" data-target="#mynotification">
                             new orders <span class="badge badge-danger" id="nt"></span>
                         </div>
                         <a href="{{ asset('/allorders') }}" class="btn btn-success"> View All Orders </a>
+                        <a href="{{ asset('/subscribers') }}" class="btn btn-success"> View Subscribers </a>
                         <a href="{{asset('/tosettings')}} " class="btn btn-primary">Settings</a>
 
                     </div>
@@ -140,10 +141,10 @@
                                             <div class="row">
                                                 <div class="col">{{$book->book_name}}
                                                 </div>
-                                                <div class="col d-flex justify-content-end "><a href="{{asset('edit/'.$book->id)}}" class="btn btn-primary">Edit</a>
+                                                <div class="col d-flex justify-content-end "><a href="{{asset('edit/'.$book->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                                     <form class="px-2" method="POST" action="{{url('destroy/'.$book->id)}}">
                                                         @csrf
-                                                        <input type="submit" value="Delete " class="btn btn-danger">
+                                                        <input type="submit" value="Delete " class="btn btn-danger btn-sm">
                                                     </form>
                                                 </div>
                                             </div>

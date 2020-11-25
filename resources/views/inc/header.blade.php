@@ -47,7 +47,7 @@
                   <div class="headholder">
 
                       <div class="">
-                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh" alt="..." />
+                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh " alt="..." />
                       </div>
 
                   </div>
@@ -56,7 +56,7 @@
                   <div class="headholder">
 
                       <div class="">
-                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh" alt="..." />
+                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh " alt="..." />
                       </div>
 
                   </div>
@@ -65,14 +65,14 @@
                   <div class="headholder">
 
                       <div class="">
-                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh" alt="..." />
+                          <img src="{{asset('/mdb/img/topbg.png')}}" class="fitter fitterh " alt="..." />
                       </div>
 
                   </div>
               </div>
           </div>
 
-          <div class="BB mx-lg-5 ">
+          <div class="BB mx-lg-5 d-none d-sm-none d-md-none d-lg-block">
               <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span> -->
               <div class="row ">
@@ -103,7 +103,7 @@
                       <div class="row">
                           <div class="col p-lg-5 p-md-0 p-sm-0">
                               @foreach($headside as $hbr)
-                               <div class="thebar text-dark ">
+                              <div class="thebar text-dark ">
                                   {{$hbr->barcode}}
                               </div>
                               @endforeach
