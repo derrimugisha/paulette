@@ -96,6 +96,7 @@ $(".sb").each(function() {
     });
 });
 
+$('.alert-msg').delay(5000).fadeOut()
 const icons = document.querySelectorAll("i");
 
 icons.forEach(el => {

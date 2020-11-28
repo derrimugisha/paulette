@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\CheckOutMail;
+
 use App\Models\order;
 
 class OrdersController extends Controller
@@ -21,21 +25,27 @@ class OrdersController extends Controller
              'price'=>'required',
 
         ]);
+        $data = [
+            'name' => "",
+            'verification_code' => ""
+        ];
         $order = new order;
         // $order->email = $request->input('email');
         // $order->country = $request->input('country');
         // $order->district = $request->input('district');
-        $order->phone = $request->input('phone');
+        $order->phone = $request->phone;
         // $order->streetaddress = $request->input('streetaddress');
         // $order->apartmentaddress = $request->input('apartmentaddress');
-        $order->paymentmethod = $request->input('paymentmethod');
-        $order->quantity = $request->input('quantity');
-        $order->price = $request->input('price') ;
-        $order->booknameid = $request->input('bookid');
-        $order->deliveryaddress = $request->input('address');
+        $order->paymentmethod = $request->paymentmethod;
+        $order->quantity = $request->quantity;
+        $order->price = $request->price;
+        $order->booknameid = $request->id;
+        $order->deliveryaddress = $request->deliveryaddress;
         $order->save();
 
-        return redirect('/')->with('success','Your order has been made successfuly');
+        // Mail::to('derrimugisha@gmail.com')->send(new CheckOutMail($data));
+
+        return response()->json();
 
     }
 

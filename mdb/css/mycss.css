@@ -304,6 +304,18 @@
     margin-top: -18px;
 }
 
+.alert-msg {
+    position: absolute;
+    top: 220px;
+}
+
+.ck-alert {
+    position: absolute;
+    top: 189px;
+    left: 60px;
+}
+
+
 @media screen and (max-width: 468px) {
     .imgcard {
         width: 240px;

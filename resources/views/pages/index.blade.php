@@ -152,23 +152,23 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-body paybody  p-5">
-                                                    <form class="needs-validation shoppingform" action="{{ url('/order') }}" method="post" novalidate>
+                                                    <form class="needs-validation shoppingform" method="post" novalidate>
                                                         @csrf
                                                         <!-- quantity -->
                                                         <div class="form-outline mb-4">
-                                                            <input type="text" id="quantity" data-quantity="quantity{{$book->id}}" class="form-control quantity" name="quantity" value="1" />
+                                                            <input type="text" id="quantity{{$book->id}}" data-quantity="quantity{{$book->id}}" data-mynumber={{$book->id}} class="form-control quantity" name="quantity" value="1" />
                                                             <label class="form-label" for="form2Example2">quantity</label>
                                                         </div>
 
                                                         <!-- Price -->
                                                         <div class="form-outline mb-4">
-                                                            <input type="hidden" id="price" class="form-control price" name="price" value="{{$book->price}}" />
-                                                            <input type="text" id="mytotal" class="form-control mytotal" name="price" value="{{$book->price }}" readonly />
+                                                            <input type="hidden" id="price{{$book->id}}" class="form-control price" name="price" value="{{$book->price}}" />
+                                                            <input type="text" id="mytotal" data-mynumber={{$book->id}} class="form-control mytotal" name="price" value="{{$book->price }}" readonly />
                                                             <label class="form-label" for="form2Example2">Price</label>
                                                         </div>
 
                                                         <!-- payment method-->
-                                                        <select class=" form-control mb-4" id="paymentmethod" name="paymentmethod" required>
+                                                        <select class=" form-control mb-4" id="paymentmethod{{$book->id}}" data-mynumber={{$book->id}} name="paymentmethod" required>
                                                             <option value="">Select payment method </option>
                                                             <!--<option value="comming soon">Mobile Money</option>-->
                                                             <option value="cash on delivery">Cash On Delivery</option>
@@ -179,35 +179,32 @@
 
                                                         <!-- phone -->
                                                         <div class="form-outline mb-4">
-                                                            <input type="text" id="phone" class="form-control phone" name="phone" required />
+                                                            <input type="text" id="phone{{$book->id}}" data-mynumber={{$book->id}} class="form-control phone" name="phone" required />
                                                             <label class="form-label" for="form2Example2">Phone</label>
                                                             <div class="invalid-feedback font-12 frm-error">
                                                                 Field Required
                                                             </div>
                                                         </div>
 
-                                                        <input type="text" id="bookid" class="d-none" name="bookid" value="{{$book->book_name}}" />
+                                                        <input type="text" id="bookid{{$book->id}}" data-mynumber={{$book->id}} class="d-none" name="bookid" value="{{$book->book_name}}" />
 
                                                         <!-- delivery address -->
-                                                        <div class="form-outline mb-4">
-                                                            <input type="text" id="deliveryaddress" class="form-control" name="address" required />
+                                                        <div class="form-outline mb-4 alt-holder">
+                                                            <input type="text" id="deliveryaddress{{$book->id}}" data-mynumber={{$book->id}} class="form-control" name="address" required />
                                                             <label class="form-label" for="form2Example2">Delivery Address</label>
                                                             <div class="invalid-feedback font-12 frm-error">
                                                                 Field Required
                                                             </div>
                                                         </div>
 
+
+                                                        <div class="alerter{{$book->id}}"></div>
                                                         <!-- Submit button -->
-                                                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                                                        <button type="submit" data-mynumber={{$book->id}} class="btn btn-primary btn-block mb-4 mycheckout">
                                                             Check Out
                                                         </button>
                                                     </form>
                                                 </div>
-                                                {{-- <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                        Close
-                                                    </button>
-                                                </div> --}}
 
                                                 <!-- review card -->
                                                 <div class="card w-75 shadow-5-strong review-card">
@@ -317,36 +314,5 @@
                 {{ $books->links() }}
             </div>
         </div>
-
-
-
-
-
-
-        <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (() => {
-                "use strict";
-
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                const forms = document.querySelectorAll(".needs-validation");
-
-                // Loop over them and prevent submission
-                Array.prototype.slice.call(forms).forEach(form => {
-                    form.addEventListener(
-                        "submit"
-                        , event => {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-
-                            }
-                            form.classList.add("was-validated");
-                        }
-                        , false
-                    );
-                });
-            })();
-
-        </script>
+        <div class="loader loader-default" id="loader"></div>
         @endsection

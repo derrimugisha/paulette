@@ -37,6 +37,7 @@ Route::post('add/footer',[App\Http\Controllers\SettingsController::class,'addFoo
 Route::get('removecontact/{id}',[App\Http\Controllers\SettingsController::class,'deleteFc']);
 Route::get('subscribers',[App\Http\Controllers\ContactController::class,'index']);
 Route::post('addrate',[App\Http\Controllers\RatingController::class,'store']);
+Route::get('test-email',[App\Http\Controllers\CheckOutMailer::class,'sendEmail']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $books = Myfiles::all();

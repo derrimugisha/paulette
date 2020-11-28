@@ -20,6 +20,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('mdb/css/mdb.min.css') }}">
     <link rel="stylesheet" href="{{ asset('mdb/css/mycss.css') }}">
+    <link rel="stylesheet" href="{{ asset('mdb/cssloader/css-loader.css') }}">
+    <link rel="stylesheet" href="{{ asset('mdb/cssloader/loader-default.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 
 
@@ -49,4 +51,8 @@
 <script type="text/javascript" src="{{ asset('mdb/js/searchrun.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/others.js')}}"></script>
 <script type="text/javascript" src="{{ asset('mdb/js/rater.js')}}"></script>
+<script type="text/javascript" src="{{ asset('mdb/js/formchecker.js')}}"></script>
+<script type="text/javascript" src="{{ asset('mdb/js/checkout.js')}}"></script>
+<script type="text/javascript" src="{{ asset('mdb/js/email.js')}}"></script>
+<script type="text/javascript" src="{{ asset('mdb/js/phone.js')}}"></script>
 </html>

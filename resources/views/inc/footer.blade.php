@@ -47,23 +47,33 @@
     <div class="row px-lg-5 " id="bg-f">
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-            <form method="POST" action="{{url('/saveemail')}}">
+            <form class="needs-validation b-form-email" method="POST" novalidate>
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email" required />
-                    <button class="input-group-text TTbackground " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                    <input type="email" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="b_email" name="email" required />
+                    <div class="invalid-feedback font-12 frm-error">
+                        Field Required
+                    </div>
+                    <button class="input-group-text TTbackground sendmail" id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
                 </div>
             </form>
+            <div class="b-footer-alert"></div>
         </div>
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-            <form method="POST" action="{{url('/savephone')}}">
+            <form class="needs-validation b-form-phone" method="POST" action="{{url('/savephone')}}" novalidate>
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="f_input" name="phone" required />
-                    <button class="input-group-text TTbackground  " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                    <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="b_phone" name="phone" required />
+                    <div class="invalid-feedback font-12 frm-error">
+                        Field Required
+                    </div>
+                    <button class="input-group-text TTbackground  sendphone" id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
                 </div>
             </form>
+            <div class="b-footer-alert-phone">
+
+            </div>
         </div>
 
 
@@ -94,13 +104,19 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <form method="POST" action="{{url('/saveemail')}}">
+                    <form class="needs-validation s-form-email" method="POST" action="{{url('/saveemail')}}" novalidate>
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="f_input" name="email" required />
-                            <button class="input-group-text TTbackground " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                            <input type="text" class="form-control bg-light bfh-phone" placeholder="Enter Email here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="sm_email" name="email" required />
+                            <button class="input-group-text TTbackground sm-sendmail" id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                            <div class="invalid-feedback font-12 frm-error">
+                                Field Required
+                            </div>
                         </div>
                     </form>
+                    <div class="sm-footer-alert">
+                        {{-- <div class="alert alert-primary">This is for the alert section</div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,13 +136,19 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <form method="POST" action="{{url('/savephone')}}">
+                    <form class="needs-validation s-form-phone" method="POST" action="{{url('/savephone')}}" novalidate>
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="f_input" name="phone" required />
-                            <button class="input-group-text TTbackground  " id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                            <input type="text" class="form-control bg-light" placeholder="Enter Phone Number here..." aria-label="Recipient's number" aria-describedby="basic-addon2" id="sm_phone" name="phone" required />
+                            <button class="input-group-text TTbackground  sm-sendphone" id="basic-addon2 "><i class="fas fa-location-arrow text-light"></i></button>
+                            <div class="invalid-feedback font-12 frm-error">
+                                Field Required
+                            </div>
                         </div>
                     </form>
+                    <div class="sm-footer-alert-phone">
+
+                    </div>
                 </div>
             </div>
         </div>
