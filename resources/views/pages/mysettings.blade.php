@@ -42,7 +42,7 @@
                                         <!-- barcode -->
                                         <div class="form-outline mb-4">
                                             <input type="text" id="code" class="form-control mb-3" name="code" value="{{$hd->barcode}}" />
-                                            <label class="form-label" for="code">Title</label>
+                                            <label class="form-label" for="code">Barcode</label>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary mb-3" id="submit">Submit</button>
@@ -81,6 +81,38 @@
                                 Change Footer Settings
                             </div>
                         </div>
+
+                        <div class="row p-2">
+                            <div class="col ">
+                                <div class="card shadow-5-strong">
+                                    <div class="card-header"><span class="font-weight-bolder"> Update Subscriber Contact Section </span></div>
+                                    <div class="card-body overflow-auto ">
+                                        @foreach($subscribersection as $ss)
+                                        <div class="row p-4">
+                                            <div class="col ">
+                                                <form method="POST" action="{{ url('/subscribersection') }}">
+                                                    @csrf
+                                                    <!-- Via Email -->
+                                                    <div class="form-outline mb-4">
+                                                        <textarea class="form-control mb-3" id="details" rows="4" name="emailmessage">{{$ss->email_msg}}</textarea>
+                                                        <label class="form-label" for="emailmessage">Via Email Message</label>
+                                                    </div>
+                                                    <!-- Via mobile message -->
+                                                    <div class="form-outline mb-4">
+                                                        <textarea class="form-control mb-3" id="mobilemessage" rows="4" name="mobilemessage">{{$ss->mobile_msg}}</textarea>
+                                                        <label class="form-label" for="mobilemessage">Via Mobile Message</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary mb-3" id="submit">Update</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="col">
 
                             <div class="card shadow-5-strong">

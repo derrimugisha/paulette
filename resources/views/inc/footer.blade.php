@@ -10,11 +10,15 @@
 
             </div>
 
+            @foreach($subscribersection as $subsec)
             <div class="pt-0">
 
-                <span class="text-light">Stay in Touch for the Freshest Products</span>
+                <span class="text-light">{{$subsec->email_msg}}</span>
 
             </div>
+            @endforeach
+
+
 
         </div>
 
@@ -26,13 +30,14 @@
 
             </div>
 
+
+            @foreach($subscribersection as $subsec2)
             <div class="pt-0">
 
-                <span class="text-light">For updates and special offers on Paulette
-                    Comics, Collections, Gifts and videos.
-                </span>
+                <span class="text-light">{{$subsec2->mobile_msg}}</span>
 
             </div>
+            @endforeach
 
         </div>
 
@@ -99,7 +104,9 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="text-light  fonthead">Stay in Touch for the Freshest Products</span>
+                    @foreach($subscribersection as $subsec_sm)
+                    <span class="text-light  fonthead">{{$subsec_sm->email_msg}}</span>
+                    @endforeach
                 </div>
             </div>
             <div class="row">
@@ -130,8 +137,9 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="text-light fonthead">For updates and special offers on Paulette
-                        Comics, Collections, Gifts and videos.</span>
+                    @foreach($subscribersection as $subsec_sm2)
+                    <span class="text-light  fonthead">{{$subsec_sm2->mobile_msg}}</span>
+                    @endforeach
                 </div>
             </div>
             <div class="row">

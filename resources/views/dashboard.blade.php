@@ -17,6 +17,7 @@
                         </div>
                         <a href="{{ asset('/allorders') }}" class="btn btn-success"> View All Orders </a>
                         <a href="{{ asset('/subscribers') }}" class="btn btn-success"> View Subscribers </a>
+                        <a href="{{ asset('/myviews') }}" class="btn btn-success"> View Ratings </a>
                         <a href="{{asset('/tosettings')}} " class="btn btn-primary">Settings</a>
 
                     </div>
@@ -97,15 +98,6 @@
                                                 <option value="available">Available</option>
 
                                             </select>
-
-
-                                            {{-- <div class="form-file">
-                                                <input type="file" class="form-file-input" id="customFile" name="file" />
-                                                <label class="form-file-label" for="customFile">
-                                                    <span class="form-file-text">Choose Book Cover...</span>
-                                                    <span class="form-file-button">Browse</span>
-                                                </label>
-                                            </div> --}}
                                             <div class="custom-file mb-4">
                                                 <input type="file" class="custom-file-input" id="customFile" name="file">
                                                 @error('file')

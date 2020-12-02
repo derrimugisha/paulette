@@ -4,7 +4,7 @@
 
 <div class="container alert-msg">
     <div class="row">
-        <div class="col">
+        <div class="col d-flex justify-content-center p-2">
             <div class="alert alert-danger">
                 {{ $errors}}
             </div>
@@ -35,7 +35,7 @@
 
 <div class="container alert-msg">
     <div class="row">
-        <div class="col">
+        <div class="col d-flex justify-content-center p-2">
             <div class="alert alert-danger">
                 {{session ('error')}}
             </div>

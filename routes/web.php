@@ -38,6 +38,9 @@ Route::get('removecontact/{id}',[App\Http\Controllers\SettingsController::class,
 Route::get('subscribers',[App\Http\Controllers\ContactController::class,'index']);
 Route::post('addrate',[App\Http\Controllers\RatingController::class,'store']);
 Route::get('test-email',[App\Http\Controllers\CheckOutMailer::class,'sendEmail']);
+Route::post('subscribersection',[App\Http\Controllers\SettingsController::class,'updatesubscribersection']);
+Route::get('myviews',[App\Http\Controllers\ViewsController::class,'index']);
+Route::get('fortest',[App\Http\Controllers\TesterController::class,'Test2']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $books = Myfiles::all();

@@ -28,34 +28,34 @@
                                         @foreach($orders as $ob)
                                         <div class="row">
                                             <div class="col">
-                                                <div>Email:</div>
-                                                <div>{{$ob->email}}</div>
+                                                <div>Book Title:</div>
+                                                <div>{{$ob->booknameid}}</div>
                                             </div>
                                             <div class="col">
-                                                <div>District:</div>
-                                                <div>{{$ob->district}}</div>
+                                                <div>Date:</div>
+                                                <div>{{$ob->created_at}}</div>
                                             </div>
                                             <div class="col">
                                                 <div>Action
                                                     @if($ob->order_status == 'not read')
                                                     <span class="badge rounded bg-danger">Not Viewed</span>
-                                                @endif
+                                                    @endif
+                                                </div>
+                                                <div><a class="btn btn-primary" href="{{asset('seeorders/'.$ob->id)}}">Viem</a></div>
                                             </div>
-                                            <div><a class="btn btn-primary" href="{{asset('seeorders/'.$ob->id)}}">Viem</a></div>
                                         </div>
+                                        @endforeach
+                                        {{$orders->links()}}
                                     </div>
-                                    @endforeach
-                                    {{$orders->links()}}
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
 
             </div>
-
-
         </div>
-    </div>
 </x-app-layout>

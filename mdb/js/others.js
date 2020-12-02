@@ -10,10 +10,10 @@ $(document).ready(function() {
     let qValue = parseInt(quantity.val());
     let tValue = pValue * qValue;
 
-    $(".pricef").each(function(){
-        let pricer = $(this).text()
-        $(this).html(formatNumber(pricer))
-    })
+    $(".pricef").each(function() {
+        let pricer = $(this).text();
+        $(this).html(formatNumber(pricer));
+    });
 
     total.text("UGX " + tValue);
 
@@ -68,11 +68,11 @@ $(".sb").each(function() {
         let bookid = $("#bookreviewid" + dd).val();
         let _token = $("input[name=_token]").val();
         e.preventDefault();
-        // console.log(starnumber);
-        // console.log(header);
-        // console.log(bookid);
-        // console.log(writer);
-        // console.log(_token);
+        $(".rateform").append(
+            "<div class='holder'>" +
+                "<div class='spinner-grow text-primary' role='status'>" +
+                "</div>"
+        );
         $.ajax({
             url: "addrate",
             type: "POST",
@@ -84,19 +84,31 @@ $(".sb").each(function() {
                 star: starnumber
             },
             success: function(response) {
-                console.log(response);
                 $(".rateform").trigger("reset");
-                $(".rateform").append(
+                $(".holder").html(
                     "<div class='badge badge-success'>" +
                         response.msg +
                         "</div>"
                 );
+                setTimeout(function() {
+                    $(".holder").html("");
+                }, 4000);
+            },
+            error: function() {
+                $(".holder").html(
+                    "<div class='badge badge-danger'>Something Went Wrong Try Again later</div>"
+                );
+                setTimeout(function() {
+                    $(".holder").html("");
+                }, 4000);
             }
         });
     });
 });
 
-$('.alert-msg').delay(5000).fadeOut()
+$(".alert-msg")
+    .delay(5000)
+    .fadeOut();
 const icons = document.querySelectorAll("i");
 
 icons.forEach(el => {

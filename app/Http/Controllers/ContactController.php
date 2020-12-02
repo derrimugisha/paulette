@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\emails;
 use App\Models\PhoneNumbers;
@@ -12,6 +13,10 @@ use App\Mail\UserMail;
 class ContactController extends Controller
 {
     public function index(){
+        $user = Auth::user();
+        if(!$user){
+            return view('auth.login');
+         }
         $emails = emails::paginate(10);
         $phonenumbers = PhoneNumbers::paginate(10);
         return view('pages.subscribers')->with('emails',$emails)

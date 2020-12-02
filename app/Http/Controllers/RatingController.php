@@ -8,9 +8,9 @@ use App\Models\RatingTable;
 class RatingController extends Controller
 {
     public function store(Request $req){
-     $rates = new RatingTable();
+     $rates = new RatingTabl();
      $message = array('msg'=>'Thank you, Your Rating is Submited');
-     $rates->postid = $req->bookid;
+     $rates->posti = $re->bookid;
      $rates->writer = $req->body;
      $rates->header = $req->header;
      $rates->rating = $req->star;

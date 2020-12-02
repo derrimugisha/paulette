@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Mail\CheckOutMail;
 
 use App\Models\order;
@@ -71,6 +73,10 @@ class OrdersController extends Controller
     }
 
     public function allorders(){
+        $user= $user = Auth::user();
+        if(!$user){
+            return view('auth.login');
+        }
         $orders = order::orderBy('created_at','desc')->paginate(10);
         return view('pages.allorders')->with('orders',$orders);
     }

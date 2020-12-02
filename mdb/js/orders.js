@@ -14,8 +14,8 @@ $(document).ready(function() {
                     $("#nt").html(0);
                 } else {
                     // console.log("this is it " + data.unseen_notification);
-                    console.log(data.notification[0]);
-                    console.log(data.notification.length);
+                    // console.log(data.notification[0]);
+                    // console.log(data.notification.length);
                     // $("#nt").toggle("d-none");
                     $("#nt").html(data.unseen_notification);
                     // console.log("******************************");
@@ -23,11 +23,9 @@ $(document).ready(function() {
                         '<ul class="list-group list-group-flush p-2" id="lister"></ul>'
                     );
                     for (i = 0; i < data.notification.length; i++) {
-                        console.log(data.notification[i].id);
+                        // console.log(data.notification[i].id);
                         $("#lister").append(
                             '<li class="list-group-item ">' +
-                                "Email:" +
-                                data.notification[i].email +
                                 "  Phone Number:" +
                                 data.notification[i].phone +
                                 '<span class="px-2" ><span id="' +

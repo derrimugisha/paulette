@@ -101,10 +101,49 @@
                                     <small class="textpuple font-weight-bold ">Price: Ugx.<span class="pricef">{{$book->price }}</span></small>
                                 </p>
                                 <p>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star"></i>
+
+                                    @php
+                                    $rates = $Myrates->where('postid',$book->id)->sum('rating');
+                                    @endphp
+
+                                    @if($rates >=1 && $rates<= 20) <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        @elseif($rates >= 40)
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        @elseif($rates >= 60)
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        @elseif($rates >= 80)
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star"></i>
+                                        @elseif($rates >= 80)
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        @elseif($rates >= 100)
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        @else
+                                        <span class="badge badge-primary badge-sm">Not Rated</span>
+                                        @endif
                                 </p>
                                 <p>
                                     @if($book->panner == 'coming soon')
@@ -229,10 +268,10 @@
                                                                     <form class="needs-validation rateform" method="post" novalidate>
                                                                         @csrf
                                                                         <!-- review header -->
-                                                                        <div class="form-outline mb-4">
+                                                                        <div class="form-outline mb-4" >
                                                                             <input type="text" id="starnumber{{$book->id}}" class="form-control starnumber" name="starnumber" required />
                                                                             <label class="form-label" for="form2Example2">Put number of stars</label>
-                                                                            <div class="invalid-feedback ">
+                                                                            <div class="invalid-feedback font-12 frm-error ">
                                                                                 please fill in this field "starnumber"
                                                                             </div>
                                                                         </div>
@@ -244,14 +283,17 @@
                                                                         <div class="form-outline mb-4">
                                                                             <input type="text" id="reviewheader{{$book->id}}" class="form-control reviewheader" name="reviewheader" required />
                                                                             <label class="form-label" for="form2Example2">Review Header</label>
-                                                                            <div class="invalid-feedback ">
-                                                                                please fill in this field "Review Header"
+                                                                            <div class="invalid-feedback font-12 frm-error">
+                                                                                Field Required
                                                                             </div>
                                                                         </div>
                                                                         <!-- write review here -->
                                                                         <div class="form-outline mb-4">
-                                                                            <textarea class="form-control writereview" id="writereview{{$book->id}}" rows="4" name="writer"></textarea>
+                                                                            <textarea class="form-control writereview" id="writereview{{$book->id}}" rows="4" name="writer" required></textarea>
                                                                             <label class="form-label" for="details">Write Review Here</label>
+                                                                            <div class="invalid-feedback font-12 frm-error">
+                                                                                Field Required
+                                                                            </div>
                                                                         </div>
 
                                                                         {{-- book id --}}

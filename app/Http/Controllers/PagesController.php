@@ -8,6 +8,8 @@ use App\Models\Myfiles;
 use App\Models\headside;
 use App\Models\AboutUs;
 use App\Models\FooterContacts;
+use App\Models\RatingTable;
+use App\Models\SubscriberSection;
 
 class PagesController extends Controller
 {
@@ -16,11 +18,15 @@ class PagesController extends Controller
         $headside = headside::all()->take('1');
         $aboutus= AboutUs::all()->take('1');
         $footercontent= FooterContacts::all();
+        $subscribersection = SubscriberSection::all();
+        $AllRates = RatingTable::all();
         return view('pages.index')
         ->with('books',$books)
         ->with('headside',$headside)
         ->with('aboutus',$aboutus)
-        ->with('footercontent',$footercontent);
+        ->with('footercontent',$footercontent)
+        ->with('subscribersection',$subscribersection)
+        ->with('Myrates',$AllRates);
     }
 
     public function edit($id){
