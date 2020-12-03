@@ -26,14 +26,24 @@ $("#showf").on("click", function() {
     $("#showf").addClass("d-none");
 });
 
-$(".reviewer").on("click", function() {
-    // alert("yee am working");
-    $(".review-card").toggle();
+$(".reviewer").each(function() {
+    let reviewClick = $(this).data("clickernumber");
+    $(this).on("click", function() {
+        $("#review-card" + reviewClick).toggle();
+    });
 });
 
-$(".reviewer-b").on("click", function(e) {
-    e.preventDefault();
-    $(".review-card").toggle();
+$(".reviewer-b").each(function() {
+    let closer = $(this).data("close");
+    $(this).on("click", function(e) {
+        e.preventDefault();
+        $("#review-card" + closer).toggle();
+        $(".one").css("color", "black");
+        $(".two").css("color", "black");
+        $(".three").css("color", "black");
+        $(".four").css("color", "black");
+        $(".five").css("color", "black");
+    });
 });
 
 $(".quantity").each(function() {
@@ -90,16 +100,26 @@ $(".sb").each(function() {
                         response.msg +
                         "</div>"
                 );
+                $(".one").css("color", "black");
+                $(".two").css("color", "black");
+                $(".three").css("color", "black");
+                $(".four").css("color", "black");
+                $(".five").css("color", "black");
                 setTimeout(function() {
-                    $(".holder").html("");
+                    $(".holder").remove();
                 }, 4000);
             },
             error: function() {
                 $(".holder").html(
                     "<div class='badge badge-danger'>Something Went Wrong Try Again later</div>"
                 );
+                $(".one").css("color", "black");
+                $(".two").css("color", "black");
+                $(".three").css("color", "black");
+                $(".four").css("color", "black");
+                $(".five").css("color", "black");
                 setTimeout(function() {
-                    $(".holder").html("");
+                    $(".holder").remove();
                 }, 4000);
             }
         });

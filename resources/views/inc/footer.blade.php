@@ -198,7 +198,7 @@
     <div class="row px-lg-5 ">
         @foreach($footercontent as $fc)
 
-        <div class="col-12 col-md-12 col-sm-12 col-lg-4 px-5 py-3">
+        <div class="col-12 col-md-12 col-sm-12 col-lg-4 px-5 px-sm-0 px-md-0 py-3">
             <div class="row p-1">
 
                 <div class="col-2 d-flex justify-content-end py-2">
@@ -215,7 +215,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-12 col-sm-12 col-lg-4 px-5 py-3">
+        <div class="col-12 col-md-12 col-sm-12 col-lg-4 px-5 px-sm-0 px-md-0  py-3">
             <div class="row p-1">
 
                 <div class="col-2 col-sm-2 col-md-2 py-2 d-flex justify-content-end">

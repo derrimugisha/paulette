@@ -51,10 +51,85 @@
             <div class="col-12 col-md-12 col-sm-12 col-lg-6 d-flex justify-content-center p-2 ">
                 <!-- card -->
                 <div class="card mb-3 shadow-2-strong imgcard">
+                    <div class="bg-danger">
+                        <!-- review card -->
+                        <div class="card  shadow-5-strong review-card" id="review-card{{$book->id}}">
+
+                            <div class="row px-2">
+                                <div class="col py-2 d-flex justify-content-center">
+                                    <div class="mythumb rounded ">
+                                        <img src="{{asset('/public'.$book->file_path)}}" alt="" class="fitter h-100 rounded">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col p-2 d-flex justify-content-center">
+                                            <li class="fa fa-star  one" data-index="0"></li>
+                                            <li class="fa fa-star  two" data-index="1"></li>
+                                            <li class="fa fa-star  three" data-index="2"></li>
+                                            <li class="fa fa-star  four" data-index="3"></li>
+                                            <li class="fa fa-star  five" data-index="5"></li>
+                                        </div>
+                                    </div>
+                                    <div class="row px-2">
+                                        <div class="col">
+                                            <form class="needs-validation rateform" method="post" novalidate>
+                                                @csrf
+                                                <!-- review header -->
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="starnumber{{$book->id}}" class="form-control starnumber" name="starnumber" required />
+                                                    <label class="form-label" for="form2Example2">Put number of stars</label>
+                                                    <div class="invalid-feedback font-12 frm-error ">
+                                                        Field required
+                                                    </div>
+                                                </div>
+                                                <div class="rate-error" style="display:none">Use numbers 1-5 to rate</div>
+
+
+
+                                                <!-- review header -->
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="reviewheader{{$book->id}}" class="form-control reviewheader" name="reviewheader" required />
+                                                    <label class="form-label" for="form2Example2">Review Header</label>
+                                                    <div class="invalid-feedback font-12 frm-error">
+                                                        Field Required
+                                                    </div>
+                                                </div>
+                                                <!-- write review here -->
+                                                <div class="form-outline mb-4">
+                                                    <textarea class="form-control writereview" id="writereview{{$book->id}}" rows="4" name="writer" required></textarea>
+                                                    <label class="form-label" for="details">Write Review Here</label>
+                                                    <div class="invalid-feedback font-12 frm-error">
+                                                        Field Required
+                                                    </div>
+                                                </div>
+
+                                                {{-- book id --}}
+                                                <input type='hidden' id="bookreviewid{{$book->id}}" name="bookreviewid{{$book->id}}" value="{{$book->id}}">
+
+                                                <div class="d-flex justify-content-end">
+                                                    <!-- cancel -->
+                                                    <button class="btn btn-danger btn-sm mx-2  mb-4 reviewer-b" data-close="{{$book->id}}">
+                                                        close
+                                                    </button>
+
+                                                    <!-- Submit button -->
+                                                    <button type="submit" class="btn btn-outline-success mx-2 btn-sm mb-4 sb" data-formnumber="{{$book->id}}" id="sb">
+                                                        submit
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row g-0">
-                        <div class="col-md-6 col-sm-12 col-12 col-lg-6">
-                            <div class="rounded-left imgbox">
+                        <div class="col-md-6 col-sm-12 col-12 col-lg-6 overflow-hidden">
+                            <div class="rounded-left imgbox reduced ">
                                 <img src="{{asset('/public'.$book->file_path)}}" alt="" class="fitter rounded-left">
+                                <span class="pointer reviewer text-danger rounded px-3" id="slide" data-clickernumber="{{$book->id}}"> <i class="far fa-edit px-1"></i> write review</span>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 col-12 col-lg-6">
@@ -102,7 +177,7 @@
                                 </p>
                                 <p>
 
-                                    @php
+                                    {{-- @php
                                     $rates = $Myrates->where('postid',$book->id)->sum('rating');
                                     @endphp
 
@@ -143,7 +218,7 @@
                                         <i class="fas fa-star text-warning"></i>
                                         @else
                                         <span class="badge badge-primary badge-sm">Not Rated</span>
-                                        @endif
+                                        @endif --}}
                                 </p>
                                 <p>
                                     @if($book->panner == 'coming soon')
@@ -185,9 +260,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col px-4 ">
-                                                        <div class=" text-danger futura   d-flex justify-content-end">
-                                                            <span class="pointer reviewer"> <i class="far fa-edit px-1"></i> write review</span>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                                 <div class="modal-body paybody  p-5">
@@ -245,83 +318,13 @@
                                                     </form>
                                                 </div>
 
-                                                <!-- review card -->
-                                                <div class="card w-75 shadow-5-strong review-card">
-                                                    <div class="row px-2">
-                                                        <div class="col py-2 d-flex justify-content-center">
-                                                            <div class="mythumb rounded ">
-                                                                <img src="{{asset('/public'.$book->file_path)}}" alt="" class="fitter h-100 rounded">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div class="col p-2 d-flex justify-content-center">
-                                                                    <li class="fa fa-star fa-2x one" data-index="0"></li>
-                                                                    <li class="fa fa-star fa-2x two" data-index="1"></li>
-                                                                    <li class="fa fa-star fa-2x three" data-index="2"></li>
-                                                                    <li class="fa fa-star fa-2x four" data-index="3"></li>
-                                                                    <li class="fa fa-star fa-2x five" data-index="5"></li>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row px-2">
-                                                                <div class="col">
-                                                                    <form class="needs-validation rateform" method="post" novalidate>
-                                                                        @csrf
-                                                                        <!-- review header -->
-                                                                        <div class="form-outline mb-4" >
-                                                                            <input type="text" id="starnumber{{$book->id}}" class="form-control starnumber" name="starnumber" required />
-                                                                            <label class="form-label" for="form2Example2">Put number of stars</label>
-                                                                            <div class="invalid-feedback font-12 frm-error ">
-                                                                                please fill in this field "starnumber"
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rate-error" style="display:none">Use numbers 1-5 to rate</div>
 
-
-
-                                                                        <!-- review header -->
-                                                                        <div class="form-outline mb-4">
-                                                                            <input type="text" id="reviewheader{{$book->id}}" class="form-control reviewheader" name="reviewheader" required />
-                                                                            <label class="form-label" for="form2Example2">Review Header</label>
-                                                                            <div class="invalid-feedback font-12 frm-error">
-                                                                                Field Required
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- write review here -->
-                                                                        <div class="form-outline mb-4">
-                                                                            <textarea class="form-control writereview" id="writereview{{$book->id}}" rows="4" name="writer" required></textarea>
-                                                                            <label class="form-label" for="details">Write Review Here</label>
-                                                                            <div class="invalid-feedback font-12 frm-error">
-                                                                                Field Required
-                                                                            </div>
-                                                                        </div>
-
-                                                                        {{-- book id --}}
-                                                                        <input type='hidden' id="bookreviewid{{$book->id}}" name="bookreviewid{{$book->id}}" value="{{$book->id}}">
-
-                                                                        <div class="d-flex justify-content-end">
-                                                                            <!-- cancel -->
-                                                                            <button class="btn btn-danger btn-sm mx-2  mb-4 reviewer-b">
-                                                                                cancel
-                                                                            </button>
-
-                                                                            <!-- Submit button -->
-                                                                            <button type="submit" class="btn btn-outline-success mx-2 btn-sm mb-4 sb" data-formnumber="{{$book->id}}" id="sb">
-                                                                                submit
-                                                                            </button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- end of review card -->
 
                                             </div>
                                         </div>
                                     </div>
                                     <!-- end of modal -->
+
                                     @endif
                                 </p>
 
@@ -336,8 +339,8 @@
                     </div>
                 </div>
                 <!-- end of card -->
-
             </div>
+
             @endforeach
 
             @else
